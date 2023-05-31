@@ -1,3 +1,5 @@
 ## Tips and Tricks
 
-./gradlew useLatestVersions
+./gradlew useLatestVersions - update dependencies
+
+./gradlew run  - create jar file
