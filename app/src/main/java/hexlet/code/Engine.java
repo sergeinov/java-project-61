@@ -23,12 +23,6 @@ public class Engine {
         return scanner.nextLine();
     }
 
-//    public boolean checkAnswer(String answer) {
-//        if (answer.equals("yes") && (randomNumber % 2 == 0)) {
-//            return true;
-//        } else return answer.equals("no") && (randomNumber % 2 != 0);
-//    }
-
     public static void printCorrectMessage() {
         System.out.println("Correct!");
     }
@@ -39,15 +33,8 @@ public class Engine {
 
     public static void printWrongAnswerMessage(String userAnswer, String correctAnswer) {
         System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was " + "'" + correctAnswer + "'.");
-
-//        if (userAnswer.equals(correctAnswer)) {
-//            System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was 'no'.");
-//        } else if (userAnswer.equals("no")) {
-//            System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was 'yes'.");
-//        } else {
-//            System.out.println("'" + userAnswer + "'" + " is wrong text! Type 'yes' or 'no'!");
-//        }
     }
+
     public static void printResultMessage(String userName, int correctAnswer) {
         if (correctAnswer == 3) {
             System.out.println("Congratulations, " + userName + "!");
