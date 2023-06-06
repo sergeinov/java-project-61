@@ -1,5 +1,9 @@
 package hexlet.code;
 
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.Greet;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -12,6 +16,7 @@ public class App {
         var choice = """
                 1 - Greet
                 2 - Even
+                3 - Calc
                 0 - Exit
                 """;
 
@@ -26,6 +31,9 @@ public class App {
                     break;
                 case 2:
                     Even.isEven();
+                    break;
+                case 3:
+                    Calc.isCalc();
                     break;
                 case 0:
                     System.out.println("Good bye!");

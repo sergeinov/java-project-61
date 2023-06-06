@@ -1,18 +1,24 @@
-package hexlet.code;
+package hexlet.code.games;
 
 import java.util.Scanner;
 
 public class Greet {
     private static Scanner scanner = new Scanner(System.in);
+    private static String userName = "";
 
     public static String greetUser() {
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name?");
 
-        String answerName = scanner.nextLine();
-        System.out.println("Hello, " + answerName + "!");
+        userName = scanner.nextLine();
+        System.out.println("Hello, " + userName + "!");
 
-        return answerName;
+        return userName;
     }
+
+    public static String getUserName() {
+        return userName;
+    }
+
 
 }

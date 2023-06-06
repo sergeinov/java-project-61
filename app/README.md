@@ -10,5 +10,8 @@ brew install asciinema
 
 ## Tool - asciinema
 https://asciinema.org/docs/getting-started
+asciinema rec
 
-Link on record: https://asciinema.org/a/fRR7Jr43gw2M9ScS3reTHz3Ci
+Record Even game: https://asciinema.org/a/fRR7Jr43gw2M9ScS3reTHz3Ci
+
+Record Calc game: https://asciinema.org/a/rsBICSEqZF2TH26x5hwui5FzD
