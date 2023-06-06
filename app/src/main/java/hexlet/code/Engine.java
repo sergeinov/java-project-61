@@ -32,7 +32,9 @@ public class Engine {
     }
 
     public static void printWrongAnswerMessage(String userAnswer, String correctAnswer) {
-        System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was " + "'" + correctAnswer + "'.");
+        System.out.println("'" + userAnswer + "'"
+                + " is wrong answer ;(. Correct answer was "
+                + "'" + correctAnswer + "'.");
     }
 
     public static void printResultMessage(String userName, int correctAnswer) {

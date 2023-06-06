@@ -53,12 +53,10 @@ public class Calc {
             case "-":
                 result = firstNumber - secondNumber;
                 break;
-            case "*":
-                result = firstNumber * secondNumber;
-                break;
+            default:
+                result = firstNumber * secondNumber;        // * - умножение
         }
         return String.valueOf(result);
     }
-
 
 }
