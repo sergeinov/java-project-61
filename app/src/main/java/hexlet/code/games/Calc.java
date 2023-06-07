@@ -41,7 +41,7 @@ public class Calc {
         return firstNumber + " " + operator + " " + secondNumber;
     }
 
-    public static String getCorrectAnswer(String question) {
+    public static String getCorrectAnswer(String questionValue) {
         String[] questionParts = question.split(" ");
         int firstNumber = Integer.parseInt(questionParts[0]);
         int secondNumber = Integer.parseInt(questionParts[2]);
