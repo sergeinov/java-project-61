@@ -6,12 +6,14 @@ import java.util.Scanner;
 public class Engine {
 
     public static final int NUMBER_OF_ROUNDS = 3;
+    public static final int MAX_NUMBER = 100;
+    public static final int MIN_NUMBER = 1;
     private static Random random = new Random();
     private static Scanner scanner = new Scanner(System.in);
 
     public static int getRandomNumber() {
         // Генерируем случайное число от 1 до 100
-        return random.nextInt(100) + 1;
+        return random.nextInt(MAX_NUMBER) + MIN_NUMBER;
     }
 
     public static String getRandomOperator() {

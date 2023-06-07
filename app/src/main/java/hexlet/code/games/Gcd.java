@@ -21,7 +21,7 @@ public class Gcd {
             userAnswer = Engine.getUserAnswer();
             correctAnswer = getCorrectAnswer(question);
 
-            System.out.println("Your answer: " + userName);
+            System.out.println("Your answer: " + userAnswer);
             if (userAnswer.equals(correctAnswer)) {
                 Engine.printCorrectMessage();
                 counterCorrectUserAnswer++;

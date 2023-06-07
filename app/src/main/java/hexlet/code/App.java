@@ -37,8 +37,9 @@ public class App {
                 case 3:
                     Calc.isCalc();
                     break;
-                    case 4:
+                case 4:
                     Gcd.isGCD();
+                    break;
                 case 0:
                     System.out.println("Good bye!");
                     break;

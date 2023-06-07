@@ -5,22 +5,24 @@ import hexlet.code.Engine;
 public class Calc {
     private static final String GAME_DESCRIPTION = "What is the result of the expression?";
     private static final String[] OPERATORS = {"+", "-", "*"};
-    private static String correctAnswer = "";
-    private static String userAnswer = "";
-    private static int randomNumber = 0;
-    private static int counterCorrectUserAnswer = 0;
+    private static String question;
+    private static String correctAnswer;
+    private static String userAnswer;
+    private static String userName;
+    private static int counterCorrectUserAnswer;
 
     public static void isCalc() {
-        String userName = Greet.greetUser();
+        userName = Greet.greetUser();
         Engine.printGameDescription(GAME_DESCRIPTION);
 
         for (int i = 0; i < Engine.NUMBER_OF_ROUNDS; i++) {
-            String question = getGameQuestion();
+            question = getGameQuestion();
             System.out.println("Question: " + question);
 
             userAnswer = Engine.getUserAnswer();
-            correctAnswer = countResult(question);
+            correctAnswer = getCorrectAnswer(question);
 
+            System.out.println("Your answer: " + userAnswer);
             if (userAnswer.equals(correctAnswer)) {
                 Engine.printCorrectMessage();
                 counterCorrectUserAnswer++;
@@ -39,7 +41,7 @@ public class Calc {
         return firstNumber + " " + operator + " " + secondNumber;
     }
 
-    public static String countResult(String question) {
+    public static String getCorrectAnswer(String question) {
         String[] questionParts = question.split(" ");
         int firstNumber = Integer.parseInt(questionParts[0]);
         int secondNumber = Integer.parseInt(questionParts[2]);
