@@ -2,18 +2,17 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-public class Calc {
-    private static final String GAME_DESCRIPTION = "What is the result of the expression?";
-    private static final String[] OPERATORS = {"+", "-", "*"};
+public class Gcd {
+    public static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
     private static String question;
     private static String correctAnswer;
     private static String userAnswer;
     private static String userName;
     private static int counterCorrectUserAnswer;
 
-    public static void isCalc() {
+    public static void isGCD() {
         userName = Greet.greetUser();
-        Engine.printGameDescription(GAME_DESCRIPTION);
+        Engine.printGameDescription(DESCRIPTION);
 
         for (int i = 0; i < Engine.NUMBER_OF_ROUNDS; i++) {
             question = getGameQuestion();
@@ -36,29 +35,30 @@ public class Calc {
     public static String getGameQuestion() {
         int firstNumber = Engine.getRandomNumber();
         int secondNumber = Engine.getRandomNumber();
-        String operator = Engine.getRandomOperator();
 
-        return firstNumber + " " + operator + " " + secondNumber;
+        return firstNumber + " " + secondNumber;
     }
 
     public static String getCorrectAnswer(String questionValue) {
         String[] questionParts = question.split(" ");
         int firstNumber = Integer.parseInt(questionParts[0]);
-        int secondNumber = Integer.parseInt(questionParts[2]);
-        String operator = questionParts[1];
-        int result = 0;
+        int secondNumber = Integer.parseInt(questionParts[1]);
 
-        switch (operator) {
-            case "+":
-                result = firstNumber + secondNumber;
-                break;
-            case "-":
-                result = firstNumber - secondNumber;
-                break;
-            default:
-                result = firstNumber * secondNumber;        // * - умножение
+        /*
+        Алгоритм нахождения НОД вычитанием
+        - Из большего числа вычитаем меньшее.
+        - Если получается 0, значит, числа равны друг другу и являются НОД (следует выйти из цикла).
+        - Если результат вычитания не равен 0, то большее число заменяем на результат вычитания.
+        - Переходим к пункту 1.
+         */
+        while (firstNumber != secondNumber) {
+            if (firstNumber > secondNumber) {
+                firstNumber = firstNumber - secondNumber;
+            } else {
+                secondNumber = secondNumber - firstNumber;
+            }
         }
-        return String.valueOf(result);
+        return String.valueOf(firstNumber);
     }
 
 }
