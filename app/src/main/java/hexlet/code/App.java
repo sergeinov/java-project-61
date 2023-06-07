@@ -2,6 +2,7 @@ package hexlet.code;
 
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.Gcd;
 import hexlet.code.games.Greet;
 
 import java.util.InputMismatchException;
@@ -17,6 +18,7 @@ public class App {
                 1 - Greet
                 2 - Even
                 3 - Calc
+                4 - GCD
                 0 - Exit
                 """;
 
@@ -35,6 +37,8 @@ public class App {
                 case 3:
                     Calc.isCalc();
                     break;
+                    case 4:
+                    Gcd.isGCD();
                 case 0:
                     System.out.println("Good bye!");
                     break;
