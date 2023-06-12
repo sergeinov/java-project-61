@@ -2,17 +2,17 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-public class Even {
-    private static final String GAME_DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    private static String correctAnswer;
-    private static int counterCorrectUserAnswer;
+public class Prime {
+    public static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static int question;
+    private static String correctAnswer;
     private static String userAnswer;
     private static String userName;
+    private static int counterCorrectUserAnswer;
 
-    public static void isEven() {
+    public static void isPrime() {
         userName = Greet.greetUser();
-        Engine.printGameDescription(GAME_DESCRIPTION);
+        Engine.printGameDescription(DESCRIPTION);
 
         for (int i = 0; i < Engine.NUMBER_OF_ROUNDS; i++) {
             question = makeGameQuestion();
@@ -22,7 +22,7 @@ public class Even {
             correctAnswer = getCorrectAnswer(question);
 
             System.out.println("Your answer: " + userAnswer);
-            if (correctAnswer.equalsIgnoreCase(userAnswer)) {
+            if (userAnswer.equals(correctAnswer)) {
                 Engine.printCorrectMessage();
                 counterCorrectUserAnswer++;
             } else {
@@ -32,10 +32,18 @@ public class Even {
         Engine.printResultMessage(userName, counterCorrectUserAnswer);
     }
 
-    public static String getCorrectAnswer(int questionValue) {
-        String answer = questionValue % 2 == 0 ? "yes" : "no";
-
-        return answer;
+    private static String getCorrectAnswer(int questionNumber) {
+        // Натуральное число N является простым, если оно отлично от 1
+        // и делится без остатка только на 1 и на само N
+        if (questionNumber < 2) {
+            return "no";
+        }
+        for (int i = 2; i < questionNumber / 2; i++) {
+            if (questionNumber % i == 0) {
+                return "no";
+            }
+        }
+        return "yes";
     }
 
     private static int makeGameQuestion() {
