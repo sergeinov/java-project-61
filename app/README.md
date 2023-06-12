@@ -19,3 +19,5 @@ Record Calc game: https://asciinema.org/a/rsBICSEqZF2TH26x5hwui5FzD
 Record Gcd game: https://asciinema.org/a/rys7KjY9GYLO2rB4TL7hnlrYT
 
 Record Progression game: https://asciinema.org/a/3Wm2GuA5vFxABUPLsgJH6O0K2
+
+Record Prime game: https://asciinema.org/a/NVZKxMS93cXLU1vIMThscA9va
