@@ -1,5 +1,9 @@
 # Makefile
-install:
+build:
 	./gradlew installDist
-run-dist:
+run:
 	./build/install/my-app/bin/my-app
+lint:
+	./gradlew checkstyleMain
+update:
+	./gradlew useLatestVersions
