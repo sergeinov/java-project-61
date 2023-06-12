@@ -15,28 +15,31 @@ public class Even {
         Engine.printGameDescription(GAME_DESCRIPTION);
 
         for (int i = 0; i < Engine.NUMBER_OF_ROUNDS; i++) {
-            question = Engine.getRandomNumber();
+            question = makeGameQuestion();
             System.out.println("Question: " + question);
 
             userAnswer = Engine.getUserAnswer();
-            correctAnswer = String.valueOf(question % 2 == 0 ? 1 : 0);
+            correctAnswer = getCorrectAnswer(question);
 
             System.out.println("Your answer: " + userAnswer);
-            if (userAnswer.equalsIgnoreCase("yes") && correctAnswer.equals("1")) {
-                Engine.printCorrectMessage();
-                counterCorrectUserAnswer++;
-            } else if (userAnswer.equalsIgnoreCase("no") && correctAnswer.equals("0")) {
+            if (correctAnswer.equalsIgnoreCase(userAnswer)) {
                 Engine.printCorrectMessage();
                 counterCorrectUserAnswer++;
             } else {
-                if (userAnswer.equals("yes")) {
-                    Engine.printWrongAnswerMessage(userAnswer, "no");
-                } else if (userAnswer.equals("no")) {
-                    Engine.printWrongAnswerMessage(userAnswer, "yes");
-                }
+                Engine.printWrongAnswerMessage(userAnswer, correctAnswer);
             }
         }
         Engine.printResultMessage(userName, counterCorrectUserAnswer);
+    }
+
+    public static String getCorrectAnswer(int questionValue) {
+        String answer = questionValue % 2 == 0 ? "yes" : "no";
+
+        return answer;
+    }
+
+    private static int makeGameQuestion() {
+        return Engine.getRandomNumber();
     }
 
 }
