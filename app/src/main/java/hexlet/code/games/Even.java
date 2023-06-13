@@ -33,7 +33,7 @@ public class Even {
     }
 
     public static String getCorrectAnswer(int questionValue) {
-        String answer = questionValue % 2 == 0 ? "no" : "yes";
+        String answer = questionValue % 2 == 0 ? "yes" : "no";
 
         return answer;
     }
