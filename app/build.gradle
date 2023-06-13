@@ -12,7 +12,7 @@ version = '1.0-SNAPSHOT'
 
 application {
     mainClass = 'hexlet.code.App'
-    applicationName = 'my-app'
+    applicationName = 'app'
 }
 
 repositories {
