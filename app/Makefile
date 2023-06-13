@@ -1,5 +1,11 @@
 # Makefile
-install:
+build:
 	./gradlew installDist
-run-dist:
-	./build/install/my-app/bin/my-app
+run:
+	./build/install/my-app/bin/app
+lint:
+	./gradlew checkstyleMain
+report:
+	./gradlew jacocoTestReport
+update:
+	./gradlew useLatestVersions

@@ -1,23 +1,63 @@
-## Tips and Tricks
+### Hexlet tests and linter status:
+[![Actions Status](https://github.com/sergeinov/java-project-61/workflows/hexlet-check/badge.svg)](https://github.com/sergeinov/java-project-61/actions)
 
-./gradlew useLatestVersions - update dependencies
 
-./gradlew run  - create jar file
+### CodeClimate Maintainability:
+[![Maintainability](https://api.codeclimate.com/v1/badges/73c4165ac9de71fa93f0/maintainability)](https://codeclimate.com/github/sergeinov/java-project-61/maintainability)
+### CodeClimate Test Coverage:
+[![Test Coverage](https://api.codeclimate.com/v1/badges/73c4165ac9de71fa93f0/test_coverage)](https://codeclimate.com/github/sergeinov/java-project-61/test_coverage)
 
-checkstyleTest - check code style
+---
 
-brew install asciinema
+### Setup
+```sh
+make build
+```
 
-## Tool - asciinema
+### Run
+```sh
+make run
+```
+
+### Run checkstyle
+```sh
+make lint
+```
+
+### Check update dependencies and plugins
+```sh
+make update
+```
+
+## Asciinema
+
+---
+
 https://asciinema.org/docs/getting-started <br>
 *asciinema rec*
 
-Record Even game: https://asciinema.org/a/fRR7Jr43gw2M9ScS3reTHz3Ci
+### Records:
+#### Even game:
+*Win*: 
 
-Record Calc game: https://asciinema.org/a/rsBICSEqZF2TH26x5hwui5FzD
+*Fail*: 
 
-Record Gcd game: https://asciinema.org/a/rys7KjY9GYLO2rB4TL7hnlrYT
+#### Calc game:
+*Win*:
 
-Record Progression game: https://asciinema.org/a/3Wm2GuA5vFxABUPLsgJH6O0K2
+*Fail*:
 
-Record Prime game: https://asciinema.org/a/NVZKxMS93cXLU1vIMThscA9va
+#### Gcd game:
+*Win*:
+
+*Fail*:
+
+#### Progression game:
+*Win*:
+
+*Fail*:
+
+#### Prime game:
+*Win*:
+
+*Fail*: 
