@@ -13,6 +13,10 @@ version = '1.0-SNAPSHOT'
 application {
     mainClass = 'hexlet.code.App'
     applicationName = 'app'
+    applicationDistribution {
+        baseName = 'app'
+        executableScript = file('app/build/install/app/bin/app')
+    }
 }
 
 repositories {
