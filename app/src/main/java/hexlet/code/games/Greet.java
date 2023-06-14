@@ -7,7 +7,7 @@ public class Greet {
     private static String userName;
 
     public static String greetUser() {
-        System.out.println("\nWelcome to the Brain Games!\nMay I have your name? ");
+        System.out.println("Welcome to the Brain Games!\nMay I have your name? ");
 
         userName = scanner.nextLine();
         System.out.println("Hello, " + userName + "!");

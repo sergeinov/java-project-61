@@ -23,12 +23,13 @@ public class App {
                 5 - Progression
                 6 - Prime
                 0 - Exit
-                Your choice:\s""";
+                """;
 
         System.out.println(invitetion);
         System.out.print(choiceGame);
         try {
             var answer = scanner.nextInt();
+            System.out.println("Your choice: " + answer + "\n");
             switch (answer) {
                 case 1:
                     Greet.greetUser();
