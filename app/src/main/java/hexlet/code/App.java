@@ -27,7 +27,7 @@ public class App {
                 """;
 
         System.out.println(invitetion);
-        System.out.println(choice);
+        System.out.print(choice);
         try {
             var answer = scanner.nextInt();
             System.out.println(choiceAnswer + answer);
