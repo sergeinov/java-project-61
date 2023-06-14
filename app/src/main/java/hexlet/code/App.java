@@ -29,7 +29,7 @@ public class App {
         System.out.print(choiceGame);
         try {
             var answer = scanner.nextInt();
-            System.out.println("Your choice: " + answer + "\n");
+            System.out.println("Your choice: " + answer);
             switch (answer) {
                 case 1:
                     Greet.greetUser();
