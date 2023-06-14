@@ -13,9 +13,8 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         var scanner = new Scanner(System.in);
-        var invitetion = "Please enter the game number and press Enter.";
-        var unknownAnswer = "Unknown game";
         var choiceGame = """
+                Please enter the game number and press Enter.
                 1 - Greet
                 2 - Even
                 3 - Calc
@@ -25,7 +24,6 @@ public class App {
                 0 - Exit
                 """;
 
-        System.out.println(invitetion);
         System.out.print(choiceGame);
         try {
             var answer = scanner.nextInt();
@@ -53,10 +51,10 @@ public class App {
                     System.out.println("Good bye!");
                     break;
                 default:
-                    System.out.println(unknownAnswer);
+                    System.out.println("Unknown game");
             }
         } catch (InputMismatchException e) {
-            System.out.println(unknownAnswer);
+            System.out.println("Unknown game");
         }
     }
 }
