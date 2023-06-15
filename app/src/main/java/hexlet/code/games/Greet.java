@@ -11,7 +11,7 @@ public class Greet {
         System.out.print("May I have your name? ");
 
         userName = scanner.nextLine();
-        System.out.println("Hello, " + userName + "!");
+        System.out.println("\nHello, " + userName + "!");
 
         return userName;
     }
