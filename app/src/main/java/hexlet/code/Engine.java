@@ -22,7 +22,7 @@ public class Engine {
     }
 
     public static String getUserAnswer() {
-        return scanner.nextLine();
+        return scanner.next();
     }
 
     public static void printCorrectMessage() {
