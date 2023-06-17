@@ -40,7 +40,7 @@ public class Progression {
         String questionField = "..";
         int firstNumberProgression = Engine.getRandomNumber();
         int progressionLength = 10;
-        int progressionStep = random.nextInt(10) + 1;
+        int progressionStep = random.nextInt(progressionLength) + 1;        // random number from 1 to 10
         int randomEmptyField = random.nextInt(progressionLength);
         String[] progressionArr = new String[progressionLength];
 
@@ -50,7 +50,7 @@ public class Progression {
             progressionArr[i] = String.valueOf(firstNumberProgression + progressionStep * i);
         }
 
-        correctAnswer = progressionArr[randomEmptyField];       // return correct answer
+        correctAnswer = progressionArr[randomEmptyField];           // return correct answer
         progressionArr[randomEmptyField] = questionField;
 
         // example:  8 10 12 .. 16 18 20 22 24 26
