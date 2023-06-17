@@ -24,6 +24,12 @@ make run
 make lint
 ```
 
+
+### Run jacoco report
+```sh
+make report
+```
+
 ### Check update dependencies and plugins
 ```sh
 make update
