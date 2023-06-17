@@ -38,26 +38,16 @@ https://asciinema.org/docs/getting-started <br>
 
 ### Records:
 #### Even game:
-*Win*: 
-
-*Fail*: 
+https://asciinema.org/a/FuU0XFCcxiTpFaP5ZQFgbiqC6
 
 #### Calc game:
-*Win*:
-
-*Fail*:
+https://asciinema.org/a/7BDdIYOlZNYuA3gZhW2LZ9B6C
 
 #### Gcd game:
-*Win*:
-
-*Fail*:
+https://asciinema.org/a/fJV0C3VTM5TvnNRFB8OzkhWeY
 
 #### Progression game:
-*Win*:
-
-*Fail*:
+https://asciinema.org/a/ETclEBos8YAUxIB7IyPT6w6aQ
 
 #### Prime game:
-*Win*:
-
-*Fail*: 
+https://asciinema.org/a/WF3JLlQi3FAAIvVYNP9ZSi5Lw
