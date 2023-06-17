@@ -18,15 +18,16 @@ public class Even {
             question = makeGameQuestion();
             System.out.println("Question: " + question);
 
-            userAnswer = Engine.getUserAnswer();
             correctAnswer = getCorrectAnswer(question);
 
-            System.out.println("Your answer: " + userAnswer);
+            System.out.print("Your answer:\s");
+            userAnswer = Engine.getUserAnswer();
             if (correctAnswer.equalsIgnoreCase(userAnswer)) {
                 Engine.printCorrectMessage();
                 counterCorrectUserAnswer++;
             } else {
                 Engine.printWrongAnswerMessage(userAnswer, correctAnswer);
+                break;
             }
         }
         Engine.printResultMessage(userName, counterCorrectUserAnswer);

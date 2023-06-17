@@ -28,6 +28,7 @@ public class Calc {
                 counterCorrectUserAnswer++;
             } else {
                 Engine.printWrongAnswerMessage(userAnswer, correctAnswer);
+                break;
             }
         }
         Engine.printResultMessage(userName, counterCorrectUserAnswer);

@@ -12,11 +12,9 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        var scanner = new Scanner(System.in);
-        var invitetion = "Please enter the game number and press Enter.";
-        var choiceAnswer = "Your choice: ";
-        var unknownAnswer = "Unknown game";
-        var choice = """
+        final Scanner scanner = new Scanner(System.in);
+        final String choiceGame = """
+                Please enter the game number and press Enter.
                 1 - Greet
                 2 - Even
                 3 - Calc
@@ -26,38 +24,30 @@ public class App {
                 0 - Exit
                 """;
 
-        System.out.println(invitetion);
-        System.out.println(choice);
+        final String greet = "1";
+        final String even = "2";
+        final String calc = "3";
+        final String gcd = "4";
+        final String prog = "5";
+        final String prime = "6";
+        final String exit = "0";
+
+        System.out.print(choiceGame);
         try {
-            var answer = scanner.nextInt();
-            System.out.println(choiceAnswer + answer);
+            String answer = scanner.next();
+            System.out.println("Your choice: " + answer);
             switch (answer) {
-                case 1:
-                    Greet.greetUser();
-                    break;
-                case 2:
-                    Even.isEven();
-                    break;
-                case 3:
-                    Calc.isCalc();
-                    break;
-                case 4:
-                    Gcd.isGCD();
-                    break;
-                case 5:
-                    Progression.isProgression();
-                    break;
-                case 6:
-                    Prime.isPrime();
-                    break;
-                case 0:
-                    System.out.println("Good bye!");
-                    break;
-                default:
-                    System.out.println(unknownAnswer);
+                case greet -> Greet.greetUser();
+                case even -> Even.isEven();
+                case calc -> Calc.isCalc();
+                case gcd -> Gcd.isGCD();
+                case prog -> Progression.isProgression();
+                case prime -> Prime.isPrime();
+                case exit -> System.out.println("Good bye!");
+                default -> System.out.println("Unknown game");
             }
         } catch (InputMismatchException e) {
-            System.out.println(unknownAnswer);
+            System.out.println("Unknown game");
         }
     }
 }

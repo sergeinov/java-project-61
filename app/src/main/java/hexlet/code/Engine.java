@@ -22,7 +22,7 @@ public class Engine {
     }
 
     public static String getUserAnswer() {
-        return scanner.nextLine();
+        return scanner.next();
     }
 
     public static void printCorrectMessage() {
@@ -40,7 +40,7 @@ public class Engine {
     }
 
     public static void printResultMessage(String userName, int correctAnswer) {
-        if (correctAnswer == 3) {
+        if (correctAnswer == NUMBER_OF_ROUNDS) {
             System.out.println("Congratulations, " + userName + "!");
         } else {
             System.out.println("Let's try again, " + userName + "!");

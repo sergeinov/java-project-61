@@ -27,6 +27,7 @@ public class Gcd {
                 counterCorrectUserAnswer++;
             } else {
                 Engine.printWrongAnswerMessage(userAnswer, correctAnswer);
+                break;
             }
         }
         Engine.printResultMessage(userName, counterCorrectUserAnswer);
