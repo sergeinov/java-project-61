@@ -12,6 +12,8 @@ public class Progression {
     private static String userAnswer;
     private static String userName;
     private static int counterCorrectUserAnswer;
+    private static int progressionLength = 10;
+    private static String questionField = "..";
 
     public static void isProgression() {
         userName = Greet.greetUser();
@@ -37,13 +39,11 @@ public class Progression {
 
     private static String makeGameQuestion() {
         Random random = new Random();
-        String questionField = "..";
+
         int firstNumberProgression = Engine.getRandomNumber();
-        int progressionLength = 10;
         int progressionStep = random.nextInt(progressionLength) + 1;        // random number from 1 to 10
         int randomEmptyField = random.nextInt(progressionLength);
         String[] progressionArr = new String[progressionLength];
-
 
         progressionArr[0] = String.valueOf(firstNumberProgression);
         for (int i = 1; i < progressionLength; i++) {
