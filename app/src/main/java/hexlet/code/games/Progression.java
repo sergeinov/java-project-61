@@ -2,7 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class Progression {
@@ -45,6 +44,7 @@ public class Progression {
         int randomEmptyField = random.nextInt(progressionLength);
         String[] progressionArr = new String[progressionLength];
 
+
         progressionArr[0] = String.valueOf(firstNumberProgression);
         for (int i = 1; i < progressionLength; i++) {
             progressionArr[i] = String.valueOf(firstNumberProgression + progressionStep * i);
@@ -53,7 +53,8 @@ public class Progression {
         correctAnswer = progressionArr[randomEmptyField];       // return correct answer
         progressionArr[randomEmptyField] = questionField;
 
-        return Arrays.toString(progressionArr);
+        // example:  8 10 12 .. 16 18 20 22 24 26
+        return String.join(" ", progressionArr);
     }
 
 }
