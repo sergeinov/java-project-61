@@ -36,11 +36,11 @@ public class Prime {
     private static String getCorrectAnswer(int questionNumber) {
         // Натуральное число N является простым, если оно отлично от 1
         // и делится без остатка только на 1 и на само N
-        if (questionNumber < 2) {
+        if (questionNumber <= 1) {
             return "no";
         }
-        for (int i = 2; i < questionNumber / 2; i++) {
-            if (questionNumber % i == 0) {
+        for (int delimiter = 2; delimiter < questionNumber / 2; delimiter++) {
+            if (questionNumber % delimiter == 0) {
                 return "no";
             }
         }
