@@ -2,46 +2,35 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-public class Gcd {
-    public static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
-    private static String question;
-    private static String correctAnswer;
-    private static String userAnswer;
-    private static String userName;
-    private static int counterCorrectUserAnswer;
+import static hexlet.code.Engine.getRandomNumber;
 
-    public static void isGCD() {
-        userName = Greet.greetUser();
-        Engine.printGameDescription(DESCRIPTION);
+public class Gcd {
+    public static final String GAME_DESCRIPTION = "Find the greatest common divisor of given numbers.";
+    public static final int MAX_NUMBER = 100;
+    public static final int MIN_NUMBER = 1;
+
+    public static void start() {
+        var questionsAndAnswers = new String[Engine.NUMBER_OF_ROUNDS][2];
 
         for (int i = 0; i < Engine.NUMBER_OF_ROUNDS; i++) {
-            question = getGameQuestion();
-            System.out.println("Question: " + question);
+            var firstNumber = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
+            var secondNumber = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
 
-            userAnswer = Engine.getUserAnswer();
-            correctAnswer = getCorrectAnswer(question);
+            String question = getGameQuestion(firstNumber, secondNumber);
+            String correctAnswer = String.valueOf(getCorrectAnswer(question));
 
-            System.out.println("Your answer: " + userAnswer);
-            if (userAnswer.equals(correctAnswer)) {
-                Engine.printCorrectMessage();
-                counterCorrectUserAnswer++;
-            } else {
-                Engine.printWrongAnswerMessage(userAnswer, correctAnswer);
-                break;
-            }
+            questionsAndAnswers[i][0] = question;
+            questionsAndAnswers[i][1] = correctAnswer;
         }
-        Engine.printResultMessage(userName, counterCorrectUserAnswer);
+        Engine.game(GAME_DESCRIPTION, questionsAndAnswers);
     }
 
-    public static String getGameQuestion() {
-        int firstNumber = Engine.getRandomNumber();
-        int secondNumber = Engine.getRandomNumber();
-
+    public static String getGameQuestion(int firstNumber, int secondNumber) {
         return firstNumber + " " + secondNumber;
     }
 
-    public static String getCorrectAnswer(String questionValue) {
-        String[] questionParts = question.split(" ");
+    public static int getCorrectAnswer(String questionValue) {
+        String[] questionParts = questionValue.split(" ");
         int firstNumber = Integer.parseInt(questionParts[0]);
         int secondNumber = Integer.parseInt(questionParts[1]);
 
@@ -59,7 +48,7 @@ public class Gcd {
                 secondNumber = secondNumber - firstNumber;
             }
         }
-        return String.valueOf(firstNumber);
+        return firstNumber;
     }
 
 }

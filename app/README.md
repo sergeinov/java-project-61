@@ -35,14 +35,13 @@ make report
 make update
 ```
 
-## Asciinema
+## Gameplay records
 
 ---
 
 https://asciinema.org/docs/getting-started <br>
 *asciinema rec*
 
-### Records:
 #### Even game:
 https://asciinema.org/a/FuU0XFCcxiTpFaP5ZQFgbiqC6
 

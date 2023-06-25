@@ -2,64 +2,53 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import java.util.Random;
+
+import static hexlet.code.Engine.getRandomNumber;
+
 public class Calc {
     private static final String GAME_DESCRIPTION = "What is the result of the expression?";
-    private static final String[] OPERATORS = {"+", "-", "*"};
-    private static String question;
-    private static String correctAnswer;
-    private static String userAnswer;
-    private static String userName;
-    private static int counterCorrectUserAnswer;
+    public static final int MAX_NUMBER = 100;
+    public static final int MIN_NUMBER = 1;
+    private static Random random = new Random();
 
-    public static void isCalc() {
-        userName = Greet.greetUser();
-        Engine.printGameDescription(GAME_DESCRIPTION);
+    public static void start() {
+        var questionsAndAnswers = new String[Engine.NUMBER_OF_ROUNDS][2];
 
         for (int i = 0; i < Engine.NUMBER_OF_ROUNDS; i++) {
-            question = getGameQuestion();
-            System.out.println("Question: " + question);
+            int firstNumber = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
+            int secondNumber = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
+            String operator = getRandomOperator();
 
-            userAnswer = Engine.getUserAnswer();
-            correctAnswer = getCorrectAnswer(question);
+            String question = getGameQuestion(firstNumber, secondNumber, operator);
+            String correctAnswer = calculateCorrectAnswer(firstNumber, secondNumber, operator);
 
-            System.out.println("Your answer: " + userAnswer);
-            if (userAnswer.equals(correctAnswer)) {
-                Engine.printCorrectMessage();
-                counterCorrectUserAnswer++;
-            } else {
-                Engine.printWrongAnswerMessage(userAnswer, correctAnswer);
-                break;
-            }
+            questionsAndAnswers[i][0] = question;
+            questionsAndAnswers[i][1] = correctAnswer;
         }
-        Engine.printResultMessage(userName, counterCorrectUserAnswer);
+        Engine.game(GAME_DESCRIPTION, questionsAndAnswers);
     }
 
-    public static String getGameQuestion() {
-        int firstNumber = Engine.getRandomNumber();
-        int secondNumber = Engine.getRandomNumber();
-        String operator = Engine.getRandomOperator();
-
+    public static String getGameQuestion(int firstNumber, int secondNumber, String operator) {
         return firstNumber + " " + operator + " " + secondNumber;
     }
 
-    public static String getCorrectAnswer(String questionValue) {
-        String[] questionParts = question.split(" ");
-        int firstNumber = Integer.parseInt(questionParts[0]);
-        int secondNumber = Integer.parseInt(questionParts[2]);
-        String operator = questionParts[1];
-        int result = 0;
+    public static String calculateCorrectAnswer(int firstNumber, int secondNumber, String operator) {
+        int result = switch (operator) {
+            case "+" -> firstNumber + secondNumber;
+            case "-" -> firstNumber - secondNumber;
+            case "*" -> firstNumber * secondNumber;
+            default -> throw new IllegalStateException("Unexpected value: " + operator);
+        };
 
-        switch (operator) {
-            case "+":
-                result = firstNumber + secondNumber;
-                break;
-            case "-":
-                result = firstNumber - secondNumber;
-                break;
-            default:
-                result = firstNumber * secondNumber;        // * - умножение
-        }
         return String.valueOf(result);
+    }
+
+    public static String getRandomOperator() {
+        String[] OPERATORS = {"+", "-", "*"};
+        int lengthArr = OPERATORS.length;
+
+        return OPERATORS[random.nextInt(lengthArr)];
     }
 
 }

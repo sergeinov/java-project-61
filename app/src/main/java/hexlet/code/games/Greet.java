@@ -17,9 +17,4 @@ public class Greet {
         return userName;
     }
 
-    public static String getUserName() {
-        return userName;
-    }
-
-
 }
