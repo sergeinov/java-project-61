@@ -13,16 +13,16 @@ public class Even {
         var questionsAndAnswers = new String[Engine.NUMBER_OF_ROUNDS][2];
 
         for (int i = 0; i < Engine.NUMBER_OF_ROUNDS; i++) {
-            String question = String.valueOf(getGameQuestion());
-            String correctAnswer = isEven(getGameQuestion()) ? "yes" : "no";
+            int question = getGameQuestion();
+            String correctAnswer = isEven(question) ? "yes" : "no";
 
-            questionsAndAnswers[i][0] = question;
+            questionsAndAnswers[i][0] = String.valueOf(question);
             questionsAndAnswers[i][1] = correctAnswer;
         }
         Engine.game(GAME_DESCRIPTION, questionsAndAnswers);
     }
 
-    public static boolean isEven(int questionValue) {
+    private static boolean isEven(int questionValue) {
         return questionValue % 2 == 0;
     }
 

@@ -45,10 +45,10 @@ public class Calc {
     }
 
     public static String getRandomOperator() {
-        String[] OPERATORS = {"+", "-", "*"};
-        int lengthArr = OPERATORS.length;
+        String[] operators = {"+", "-", "*"};
+        int lengthArr = operators.length;
 
-        return OPERATORS[random.nextInt(lengthArr)];
+        return operators[random.nextInt(lengthArr)];
     }
 
 }
