@@ -6,43 +6,30 @@ import java.util.Random;
 
 public class Progression {
 
-    private static final String DESCRIPTION = "What number is missing in the progression?";
+    private static final String GAME_DESCRIPTION = "What number is missing in the progression?";
     private static final int MAX_PROG_LENGTH = 10;
-    private static String question;
-    private static String correctAnswer;
-    private static String userAnswer;
-    private static String userName;
-    private static int counterCorrectUserAnswer;
-    private static String questionField = "..";
+    public static final int MAX_NUMBER = 100;
+    public static final int MIN_NUMBER = 1;
+    private static Random random = new Random();
 
     public static void isProgression() {
-        userName = Greet.greetUser();
-        Engine.printGameDescription(DESCRIPTION);
+        var questionsAndAnswers = new String[Engine.NUMBER_OF_ROUNDS][2];
 
         for (int i = 0; i < Engine.NUMBER_OF_ROUNDS; i++) {
-            question = makeGameQuestion();
-            System.out.println("Question: " + question);
+            int firstNumberProgression = Engine.getRandomNumber(MIN_NUMBER, MAX_NUMBER);
+            int progressionStep = random.nextInt(MAX_PROG_LENGTH) + 1;
+            int randomEmptyField = random.nextInt(MAX_PROG_LENGTH);
 
-            userAnswer = Engine.getUserAnswer();
+            String[] progression = getGameProgression(firstNumberProgression, progressionStep, MAX_PROG_LENGTH);
 
-            System.out.println("Your answer: " + userAnswer);
-            if (userAnswer.equals(correctAnswer)) {
-                Engine.printCorrectMessage();
-                counterCorrectUserAnswer++;
-            } else {
-                Engine.printWrongAnswerMessage(userAnswer, correctAnswer);
-                break;
-            }
+            questionsAndAnswers[i][1] = progression[randomEmptyField];         // save correct answer
+            progression[randomEmptyField] = "..";
+            questionsAndAnswers[i][0] = String.join(" ", progression);
         }
-        Engine.printResultMessage(userName, counterCorrectUserAnswer);
+        Engine.game(GAME_DESCRIPTION, questionsAndAnswers);
     }
 
-    private static String makeGameQuestion() {
-        Random random = new Random();
-
-        int firstNumberProgression = Engine.getRandomNumber();
-        int progressionStep = random.nextInt(MAX_PROG_LENGTH) + 1;        // make random number from 1 to 10
-        int randomEmptyField = random.nextInt(MAX_PROG_LENGTH);
+    private static String[] getGameProgression(int firstNumberProgression, int progressionStep, int lengthArr) {
         String[] progressionArr = new String[MAX_PROG_LENGTH];
 
         progressionArr[0] = String.valueOf(firstNumberProgression);
@@ -50,11 +37,7 @@ public class Progression {
             progressionArr[i] = String.valueOf(firstNumberProgression + progressionStep * i);
         }
 
-        correctAnswer = progressionArr[randomEmptyField];           // save correct answer
-        progressionArr[randomEmptyField] = questionField;
-
-        // example:  8 10 12 .. 16 18 20 22 24 26
-        return String.join(" ", progressionArr);
+        return progressionArr;
     }
 
 }

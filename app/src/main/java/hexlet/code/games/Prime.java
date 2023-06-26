@@ -3,52 +3,39 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Prime {
-    public static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    private static int question;
-    private static String correctAnswer;
-    private static String userAnswer;
-    private static String userName;
-    private static int counterCorrectUserAnswer;
+    public static final String GAME_DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    public static final int MAX_NUMBER = 100;
+    public static final int MIN_NUMBER = 1;
 
     public static void isPrime() {
-        userName = Greet.greetUser();
-        Engine.printGameDescription(DESCRIPTION);
+        var questionsAndAnswers = new String[Engine.NUMBER_OF_ROUNDS][2];
 
         for (int i = 0; i < Engine.NUMBER_OF_ROUNDS; i++) {
-            question = makeGameQuestion();
-            System.out.println("Question: " + question);
+            int question = getGameQuestion();
+            String correctAnswer = isPrime(question) ? "yes" : "no";
 
-            userAnswer = Engine.getUserAnswer();
-            correctAnswer = getCorrectAnswer(question);
-
-            System.out.println("Your answer: " + userAnswer);
-            if (userAnswer.equals(correctAnswer)) {
-                Engine.printCorrectMessage();
-                counterCorrectUserAnswer++;
-            } else {
-                Engine.printWrongAnswerMessage(userAnswer, correctAnswer);
-                break;
-            }
+            questionsAndAnswers[i][0] = String.valueOf(question);
+            questionsAndAnswers[i][1] = correctAnswer;
         }
-        Engine.printResultMessage(userName, counterCorrectUserAnswer);
+        Engine.game(GAME_DESCRIPTION, questionsAndAnswers);
     }
 
-    private static String getCorrectAnswer(int questionNumber) {
+    private static boolean isPrime(int questionNumber) {
         // Натуральное число N является простым, если оно отлично от 1
         // и делится без остатка только на 1 и на само N
         if (questionNumber <= 1) {
-            return "no";
+            return false;
         }
         for (int delimiter = 2; delimiter < questionNumber / 2; delimiter++) {
             if (questionNumber % delimiter == 0) {
-                return "no";
+                return false;
             }
         }
-        return "yes";
+        return true;
     }
 
-    private static int makeGameQuestion() {
-        return Engine.getRandomNumber();
+    private static int getGameQuestion() {
+        return Engine.getRandomNumber(MIN_NUMBER, MAX_NUMBER);
     }
 
 }

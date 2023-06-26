@@ -38,9 +38,9 @@ public class App {
             System.out.println("Your choice: " + answer);
             switch (answer) {
                 case greet -> Greet.greetUser();
-                case even -> Even.isEven();
-                case calc -> Calc.isCalc();
-                case gcd -> Gcd.isGCD();
+                case even -> Even.start();
+                case calc -> Calc.start();
+                case gcd -> Gcd.start();
                 case prog -> Progression.isProgression();
                 case prime -> Prime.isPrime();
                 case exit -> System.out.println("Good bye!");
