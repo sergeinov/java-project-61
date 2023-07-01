@@ -1,24 +1,21 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
-
-import static hexlet.code.Engine.getRandomNumber;
+import hexlet.code.Utils;
 
 public class Calc {
     private static final String GAME_DESCRIPTION = "What is the result of the expression?";
+    private static final String[] OPERATORS = {"+", "-", "*"};
     public static final int MAX_NUMBER = 100;
     public static final int MIN_NUMBER = 1;
-    private static Random random = new Random();
 
     public static void start() {
         var questionsAndAnswers = new String[Engine.NUMBER_OF_ROUNDS][2];
 
         for (int i = 0; i < Engine.NUMBER_OF_ROUNDS; i++) {
-            int firstNumber = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
-            int secondNumber = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
-            String operator = getRandomOperator();
+            int firstNumber = Utils.getRandomNumber(MIN_NUMBER, MAX_NUMBER);
+            int secondNumber = Utils.getRandomNumber(MIN_NUMBER, MAX_NUMBER);
+            String operator = OPERATORS[Utils.getRandomNumber(0, OPERATORS.length - 1)];
 
             String question = getGameQuestion(firstNumber, secondNumber, operator);
             String correctAnswer = calculateCorrectAnswer(firstNumber, secondNumber, operator);
@@ -42,13 +39,6 @@ public class Calc {
         };
 
         return String.valueOf(result);
-    }
-
-    public static String getRandomOperator() {
-        String[] operators = {"+", "-", "*"};
-        int lengthArr = operators.length;
-
-        return operators[random.nextInt(lengthArr)];
     }
 
 }
