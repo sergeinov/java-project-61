@@ -18,7 +18,7 @@ public class Even {
             questionsAndAnswers[i][0] = String.valueOf(question);
             questionsAndAnswers[i][1] = correctAnswer;
         }
-        Engine.game(GAME_DESCRIPTION, questionsAndAnswers);
+        Engine.runGame(GAME_DESCRIPTION, questionsAndAnswers);
     }
 
     private static boolean isEven(int questionValue) {

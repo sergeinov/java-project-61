@@ -8,7 +8,7 @@ public class Prime {
     public static final int MAX_NUMBER = 100;
     public static final int MIN_NUMBER = 1;
 
-    public static void isPrime() {
+    public static void start() {
         var questionsAndAnswers = new String[Engine.NUMBER_OF_ROUNDS][2];
 
         for (int i = 0; i < Engine.NUMBER_OF_ROUNDS; i++) {
@@ -18,7 +18,7 @@ public class Prime {
             questionsAndAnswers[i][0] = String.valueOf(question);
             questionsAndAnswers[i][1] = correctAnswer;
         }
-        Engine.game(GAME_DESCRIPTION, questionsAndAnswers);
+        Engine.runGame(GAME_DESCRIPTION, questionsAndAnswers);
     }
 
     private static boolean isPrime(int questionNumber) {

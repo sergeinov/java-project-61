@@ -41,8 +41,8 @@ public class App {
                 case even -> Even.start();
                 case calc -> Calc.start();
                 case gcd -> Gcd.start();
-                case prog -> Progression.isProgression();
-                case prime -> Prime.isPrime();
+                case prog -> Progression.start();
+                case prime -> Prime.start();
                 case exit -> System.out.println("Good bye!");
                 default -> System.out.println("Unknown game");
             }
