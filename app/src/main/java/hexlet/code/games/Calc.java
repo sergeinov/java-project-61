@@ -23,7 +23,7 @@ public class Calc {
             questionsAndAnswers[i][0] = question;
             questionsAndAnswers[i][1] = correctAnswer;
         }
-        Engine.game(GAME_DESCRIPTION, questionsAndAnswers);
+        Engine.runGame(GAME_DESCRIPTION, questionsAndAnswers);
     }
 
     public static String getGameQuestion(int firstNumber, int secondNumber, String operator) {

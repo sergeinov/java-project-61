@@ -21,7 +21,7 @@ public class Gcd {
             questionsAndAnswers[i][0] = question;
             questionsAndAnswers[i][1] = correctAnswer;
         }
-        Engine.game(GAME_DESCRIPTION, questionsAndAnswers);
+        Engine.runGame(GAME_DESCRIPTION, questionsAndAnswers);
     }
 
     public static int getCorrectAnswer(String questionValue) {
